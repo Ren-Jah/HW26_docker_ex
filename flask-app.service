@@ -1,0 +1,11 @@
+[Unit]
+Description=Flask app service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/vbibikov/app
+ExecStart=/home/vbibikov/app/venv/bin/python -m gunicorn app:app -b 0.0.0.0:80 -w 4
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
